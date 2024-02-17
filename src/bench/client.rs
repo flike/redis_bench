@@ -1,19 +1,19 @@
-use crate::config::config::BenchConfig;
+use super::config::BenchConfig;
 use log::*;
 use redis::{Commands, RedisError};
 use std::{sync::Arc, thread};
 
 pub struct Client {
-    pub cfg: Box<BenchConfig>,
+    pub cfg: BenchConfig,
     pub redis_client: Arc<redis::Client>,
 }
 
 impl Client {
-    pub fn new(cfg: Box<BenchConfig>) -> Client {
-        let redis_addr = format!("redis://{}", cfg.redis_addr);
+    pub fn new(bench_cfg: BenchConfig) -> Client {
+        let redis_addr = format!("redis://{}", bench_cfg.redis_addr);
         let client = redis::Client::open(redis_addr).unwrap();
         Client {
-            cfg: cfg,
+            cfg: bench_cfg,
             redis_client: Arc::new(client),
         }
     }
