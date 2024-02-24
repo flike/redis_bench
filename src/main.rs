@@ -1,7 +1,10 @@
+mod bench;
+
+use bench::client;
+use bench::config::BenchConfig;
 use clap::Parser;
 use config::{Config as AppConfig, File as AppFile};
 use log::*;
-use redis_bench::bench::{client, config::BenchConfig};
 use simplelog::*;
 use std::str::FromStr;
 

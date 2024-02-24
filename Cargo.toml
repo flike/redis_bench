@@ -1,11 +1,18 @@
 [package]
+authors = ["flike <flikechen@gmail.com>"]
+edition = "2021"
 name = "redis_bench"
 version = "0.1.0"
-edition = "2021"
+license = "MIT"
+readme = "Readme.md"
+repository = "https://github.com/flike/redis_bench"
+description = """
+A Redis Benchmark Client
+"""
 
 [[bin]]
 name = "redis_bench"
-path = "src/bin/main.rs"
+path = "src/main.rs"
 
 [dependencies]
 clap = { version = "4.5.0", features = ["derive"] }
